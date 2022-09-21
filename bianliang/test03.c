@@ -30,10 +30,28 @@ int main() {
     float f1 = 1.1f;
     double d2 = 4.556565665;
     f1 = d2;
-    printf("f1=%f", f1);
+    printf("f1=%f\n", f1);
 
     // 强制类型转换
+    /*
+     * 当进行数据的 高精度 -》 低精度 ，需要强制转换
+     * 强转符号只针对于最近的操作数有效，使用（）提升优先级
+     */
+    double d3 = 1.234;
+    int num = (int) d3; // 不是四舍五入，直接截断小数后的数据
+    printf("num=%d\n", num);
 
+    int result = (int) (d3 + num);
+    printf("result=%d\n", result);
+
+    char c = 'a';
+    int i = 5;
+    float f = 3.14f;
+    double d4 = 1.0;
+    char ch1 = c + i + f; // float -> char 精度确实
+    printf("ch1=%d\n", ch1);
+    char ch2 = c + i + f + d4; // double -> char 精度确实
+    printf("ch2=%d\n", ch2);
 
     return 0;
 }
